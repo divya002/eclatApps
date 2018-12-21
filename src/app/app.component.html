@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <ul>
+   <ng-container *ngFor="let i of userShowData">
+     <span>{{i.node.name}}</span>
+     <ul>
+   <ng-container *ngFor="let j of i.node.image let index = index">
+      
+    <div class="col-6" style="display:inline-block" *ngIf='i.node.image.length%2==0'>
+      <img [src]="j" style="width:100%;padding:10px;border-radius:20px;">
+    </div>
+    <ng-container *ngIf='i.node.image.length%2!=0'>
+      <div class="col-12" *ngIf="index==0">
+          <img [src]="j" style="width:100%;max-height:400px;padding:10px;border-radius:20px;" >
+      </div>
+        
+        <div class="col-6" *ngIf="index!=0" style="display:inline-block">
+        <img [src]="j"  style="width:100%;padding:10px;border-radius:20px;">
+        </div>
+    </ng-container>
+   
+   </ng-container>
+  </ul>
+</ng-container>
+  </ul>
+  </div>
+  <button (click)="getNextUser();">Next</button>
+</div>
